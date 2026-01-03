@@ -1,0 +1,37 @@
+﻿using AutoMapper;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using XOKA.Domain.Entities.Finance;
+using XOKA.Domain.Interfaces;
+
+namespace Application.Finance.Commands.cEmployeePayInfo.cEmployeePayInfoDelete.cEmployeePayInfoDeleteCommand
+{
+
+    /// @author  Shimels Alem  c_EmployeePayInfoDelete stored procedure.
+
+
+    public class cEmployeePayInfoDeleteHandler : IRequestHandler<cEmployeePayInfoDeleteCommand, IList<CEmployeePayInfo_id>>
+    {
+        readonly IMapper _mapper;
+        readonly IProcedureAdabter _procedureAdabter;
+        public cEmployeePayInfoDeleteHandler(IMapper mapper, IProcedureAdabter procedureAdabter)
+        {
+            _mapper = mapper;
+            _procedureAdabter = procedureAdabter;
+        }
+
+        public async Task<IList<CEmployeePayInfo_id>> Handle( cEmployeePayInfoDeleteCommand request, CancellationToken cancellationToken)
+        {
+
+            IList<CEmployeePayInfo_id> result = await _procedureAdabter
+                .Execute<CEmployeePayInfo_id>("[FINA].c_EmployeePayInfoDelete", request);
+           
+
+            return result;
+        }
+    }
+}
+  

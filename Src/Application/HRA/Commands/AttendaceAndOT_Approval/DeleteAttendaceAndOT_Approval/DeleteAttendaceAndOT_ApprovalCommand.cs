@@ -1,0 +1,15 @@
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using XOKA.Domain.Entities.HRA;
+
+namespace XOKA.Application.HRA.Commands.AttendaceAndOT_Approval.DeleteAttendaceAndOT_Approval
+{
+    /// @author  Shimels Alem  DeleteCAttendaceAndOT_Approval stored procedure.
+    
+    public class DeleteAttendaceAndOT_ApprovalCommand : IRequest<IList<AttendaceAndOtApproval_ATT_OT_Trans_ID>>
+    {
+        public Guid? ATT_OT_Trans_ID { get; set; }
+    }
+}

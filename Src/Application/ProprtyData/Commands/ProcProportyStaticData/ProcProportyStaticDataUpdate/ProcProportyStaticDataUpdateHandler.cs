@@ -1,0 +1,41 @@
+﻿
+
+using AutoMapper;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using XOKA.Domain.Entities.ProprtyData;
+using XOKA.Domain.Interfaces;
+
+
+
+namespace Application.ProprtyData.Commands.ProcProportyStaticData.ProcProportyStaticDataUpdate.ProcProportyStaticDataUpdateCommand
+{
+
+    /// @author  Shimels Alem  proc_Rent_CollectionUpdate stored procedure.
+
+
+    public class ProcProportyStaticDataUpdateHandler : IRequestHandler<ProcProportyStaticDataUpdateCommand, IList<Proporty_Static_DataID>>
+    {
+        readonly IMapper _mapper;
+        readonly IProcedureAdabter _procedureAdabter;
+        public ProcProportyStaticDataUpdateHandler(IMapper mapper, IProcedureAdabter procedureAdabter)
+        {
+            _mapper = mapper;
+            _procedureAdabter = procedureAdabter;
+        }
+
+        public async Task<IList<Proporty_Static_DataID>> Handle(ProcProportyStaticDataUpdateCommand request, CancellationToken cancellationToken)
+        {
+
+            IList<Proporty_Static_DataID> result = await _procedureAdabter
+                .Execute<Proporty_Static_DataID>("[ProprtyData].[proc_Proporty_Static_DataUpdate]", request);
+           
+
+            return result;
+        }
+    }
+}
+ 

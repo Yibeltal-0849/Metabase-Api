@@ -1,0 +1,36 @@
+﻿using AutoMapper;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using XOKA.Domain.Entities.ProprtyData;
+using XOKA.Domain.Interfaces;
+
+namespace Application.ProprtyData.Queries.proctblExport.GetproctblExportLoadAll
+{
+    class GetproctblExportLoadAllQueryHandler : IRequestHandler<GetproctblExportLoadAllQuery, GetproctblExportLoadAllListVm>
+    {
+        readonly IMapper _mapper;
+        readonly IProcedureAdabter _procedureAdabter;
+
+        public GetproctblExportLoadAllQueryHandler(IMapper mapper, IProcedureAdabter procedureAdabter)
+        {
+            _mapper = mapper;
+            _procedureAdabter = procedureAdabter;
+        }
+
+        public async Task<GetproctblExportLoadAllListVm> Handle(GetproctblExportLoadAllQuery request, CancellationToken cancellationToken)
+        {
+            IList<tblExport> proctblExports = await _procedureAdabter
+               .Execute<tblExport>("[ProprtyData].[proc_tblExportLoadAll]");
+            GetproctblExportLoadAllListVm vm = new GetproctblExportLoadAllListVm
+            {
+                proctblExports = _mapper.Map<IList<tblExport>, IList<GetproctblExportLoadAllVm>>(proctblExports)
+            };
+
+            return vm;
+        }
+    }
+}

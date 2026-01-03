@@ -1,0 +1,38 @@
+namespace XOKA.Domain.Entities.dbo
+{
+    public class PropertyRegistration2
+	{
+		public string Property_ID { get; set; }
+		public string FIXED_Asset_NO { get; set; }
+		public string Description { get; set; }
+		public string Plot_ID { get; set; }
+		public System.DateTime? Registration_Date { get; set; }
+		public int? Property_Type_ID { get; set; }
+		public int? Basement_Floor_No { get; set; }
+		public int? Upper_Floor_No { get; set; }
+		public System.Double? Parking_Area_M2 { get; set; }
+		public decimal? Estimated_Price { get; set; }
+		public System.Double? Building_Size_M2 { get; set; }
+		public System.Double? Compound_Size_M2 { get; set; }
+		public int? Property_Status_ID { get; set; }
+		public string Property_Parent_ID { get; set; }
+		public System.String Map_Floor_Plan { get; set; }
+		public string Application_No { get; set; }
+		public System.Guid? Licence_Service_ID { get; set; }
+		public int? Number_of_Lift{ get; set; }
+		public string Building_No { get; set; }
+		public string HouseNo { get; set; }
+		public string Location_of_Property { get; set; }
+		public int? Floor_No { get; set; }
+		public System.Double? Size_In_Proportional { get; set; }
+		public System.Double? Proportional_from_Compound_Size { get; set; }
+		public System.Guid? Created_By { get; set; }
+		public System.Guid? Updated_By { get; set; }
+		public System.Guid? Deleted_By { get; set; }
+		public bool? Is_Deleted{ get; set; }
+		public System.DateTime? Created_Date { get; set; }
+		public System.DateTime? Updated_Date { get; set; }
+		public System.DateTime? Deleted_Date { get; set; }
+
+	}
+}

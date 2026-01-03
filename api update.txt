@@ -1,0 +1,15 @@
+Insert{
+Inventory.Inventory_Items---
+BSC.Annual_Strategic_Plan_Assignment----
+HRA.Organizational_Structure---
+PropertyData.Rent_Contract-----
+FINA.J_General_journal---
+FINA.J_Payment_Journal---
+FINA.J_Sales_Journal--
+FINA.J_Purchase_Journal--
+Inventory.Stock_Bin_Detail---
+FINA.CTransactionPurchase----
+FINA.CTransactionSales----
+HRA.Attendance_and_OT_Transaction----}
+Inventory.Item_Activity(I & U)----
+Inventory.ItemTransferDetailController(u)
